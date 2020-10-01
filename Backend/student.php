@@ -36,4 +36,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //Check it is comming from a form
 		print $mysqli->error; //show mysql error if any
 	}
 }
-?>
