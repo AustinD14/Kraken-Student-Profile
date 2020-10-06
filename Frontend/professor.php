@@ -10,16 +10,15 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.0/css/bootstrap.min.css" />
   <link rel="stylesheet" href="Styles/site.css"" />
-  </head>
-  <body>
-    <!-- Navbar -->
-    <nav class=" navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-  <a class="navbar-brand" href="/">Student Profile</a>
+  <script src=" https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> </script> </head> <body>
+  <!-- Navbar -->
+  <nav class=" navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="/">Student Profile</a>
   </nav>
 
   <!-- Form  -->
   <div style="height: 80px"></div>
-  <table>
+  <table id="tableID">
     <tr>
       <th>id</th>
       <th>name</th>
@@ -34,9 +33,10 @@
     ajax.open("GET", "../Backend/list.php", true);
     ajax.send();
 
+    var data;
     ajax.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
-        var data = JSON.parse(this.responseText);
+        data = JSON.parse(this.responseText);
         console.log(data);
 
         var html = "";
@@ -46,14 +46,30 @@
           var email = data[a].user_email;
 
           html += "<tr>";
-          html += "<td>" + id + "</td>";
+          html += "<td class='clickable' data-href='studentInfo.php'>" + id + "</td>";
           html += "<td>" + name + "</td>";
           html += "<td>" + email + "</td>";
           html += "</tr>";
         }
         document.getElementById("data").innerHTML += html;
-      }
-    };
+      } //end if
+    }; //end onreadystatechange
+
+
+    // makes rows clickable
+    jQuery(document).ready(function($) {
+      $(".clickable").click(function() {
+        var id = data[$(this).text() - 1];
+        console.log(id);
+        var studentinfo = id;
+        sessionStorage.setItem("studentInfo", studentinfo);
+
+        window.location = $(this).data("href");
+        // var studentinfo = "lala";
+        // sessionStorage.setItem("studentInfo", studentinfo);
+      });
+
+    });
   </script>
   </body>
 
