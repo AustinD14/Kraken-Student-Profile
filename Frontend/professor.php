@@ -55,7 +55,7 @@
     }; //end onreadystatechange
 
 
-    // makes rows clickable and sends the id number to student info
+    // makes rows clickable and saves studentInfo to storage
     jQuery(document).ready(function($) {
       $(".clickable").click(function() {
         var studentinfo = data[$(this).text() - 1];
@@ -63,7 +63,6 @@
         window.location = $(this).data("href");
       });
     });
-
   </script>
 
   </body>

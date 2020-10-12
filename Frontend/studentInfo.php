@@ -30,7 +30,8 @@
         <tbody id="data"></tbody>
     </table>
 
-    <script>//DISPLAYS DATA OF SPECIFIC STUDENT CLICKED
+    <script>
+        //DISPLAYS DATA OF SPECIFIC STUDENT CLICKED
         var studentinfo = JSON.parse(sessionStorage.getItem("studentInfo"));
         var html = "";
         html += "<tr>";
