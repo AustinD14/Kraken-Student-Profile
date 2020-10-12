@@ -20,10 +20,25 @@
     </nav>
     <!-- Form  -->
     <div style="height: 80px"></div>
+    <table id="tableID">
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>email</th>
+        </tr>
 
-    <script>
-        var studentinfo = sessionStorage.getItem("studentInfo");;
-        console.log(studentinfo);
+        <tbody id="data"></tbody>
+    </table>
+
+    <script>//DISPLAYS DATA OF SPECIFIC STUDENT CLICKED
+        var studentinfo = JSON.parse(sessionStorage.getItem("studentInfo"));
+        var html = "";
+        html += "<tr>";
+        html += "<td class='clickable' data-href='studentInfo.php'>" + studentinfo.id + "</td>";
+        html += "<td>" + studentinfo.user_name + "</td>";
+        html += "<td>" + studentinfo.user_email + "</td>";
+        html += "</tr>";
+        document.getElementById("data").innerHTML += html;
     </script>
 </body>
 

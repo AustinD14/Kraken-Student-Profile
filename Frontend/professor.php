@@ -27,7 +27,6 @@
 
     <tbody id="data"></tbody>
   </table>
-
   <script>
     var ajax = new XMLHttpRequest();
     ajax.open("GET", "../Backend/list.php", true);
@@ -56,21 +55,17 @@
     }; //end onreadystatechange
 
 
-    // makes rows clickable
+    // makes rows clickable and sends the id number to student info
     jQuery(document).ready(function($) {
       $(".clickable").click(function() {
-        var id = data[$(this).text() - 1];
-        console.log(id);
-        var studentinfo = id;
-        sessionStorage.setItem("studentInfo", studentinfo);
-
+        var studentinfo = data[$(this).text() - 1];
+        sessionStorage.setItem("studentInfo", JSON.stringify(studentinfo));
         window.location = $(this).data("href");
-        // var studentinfo = "lala";
-        // sessionStorage.setItem("studentInfo", studentinfo);
       });
-
     });
+
   </script>
+
   </body>
 
 </html>
