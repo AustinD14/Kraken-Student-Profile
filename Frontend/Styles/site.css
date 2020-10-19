@@ -27,32 +27,14 @@ html {
     background-size: cover;
     -o-background-size: cover;
   }
-  
-  .sep {
-    vertical-align: middle;
-    font-size: 10px;
-    margin-left: 10px;
-    margin-right: 10px;
-  }
-  .element-ddl {
-    float: right;
-    margin-right: 70px;
-    margin-top: 10px;
-  }
-  .detector-group {
-    margin-left: 75px;
-    margin-bottom: 15px;
-  }
+
   
   #legend {
     float: left;
     margin-left: 70px;
     margin-top: 250px;
   }
-  
-  .pixl-img {
-    opacity: 0.7;
-  }
+
   
   .about {
     margin-top: 50px;
@@ -71,32 +53,13 @@ html {
     font-size: 0.75em;
   }
   
-  table.dataTable thead .sorting:after,
-  table.dataTable thead .sorting:before,
-  table.dataTable thead .sorting_asc:after,
-  table.dataTable thead .sorting_asc:before,
-  table.dataTable thead .sorting_asc_disabled:after,
-  table.dataTable thead .sorting_asc_disabled:before,
-  table.dataTable thead .sorting_desc:after,
-  table.dataTable thead .sorting_desc:before,
-  table.dataTable thead .sorting_desc_disabled:after,
-  table.dataTable thead .sorting_desc_disabled:before {
-    bottom: 0.5em;
+  table {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #343A40;
   }
-  
-  .dt {
-    margin-top: 25px;
-    margin-bottom: 75px;
-  }
-  
-  .dt-data-page {
-    margin-top: 50px;
-    margin-left: 25px;
-    margin-right: 25px;
-  }
-  .binary-plots {
-    margin-top: 100px;
-  }
+
   
   .flex-row:not(:first-of-type) {
     margin-top: 20px;
