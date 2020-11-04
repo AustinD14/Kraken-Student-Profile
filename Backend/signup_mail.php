@@ -67,7 +67,8 @@ if (isset($_POST['submit'])) {
        /*
        * Email certificate
        * now I test without this
-       * 
+       * This email function might not work on localhost without SMTP server
+       * We need to find out the way of email certificate on AWS service
        */
        /*  
        $mailTo = $mail;
