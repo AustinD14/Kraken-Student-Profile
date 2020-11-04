@@ -111,7 +111,7 @@ if(isset($_POST['btn_submit'])){
 
 	//register to DB here
 	try{
-		$sql = "INSERT INTO user_datas (name,password,mail,status,created_at,updated_at,role) VALUES (:name,:password_hash,:mail,0,now(),now(),:role)";
+		$sql = "INSERT INTO user_data (name,password,mail,status,created_at,updated_at,role) VALUES (:name,:password_hash,:mail,0,now(),now(),:role)";
        $stm = $pdo->prepare($sql);
 		$stm->bindValue(':name', $_SESSION['name'], PDO::PARAM_STR);
         $stm->bindValue(':mail', $_SESSION['mail'], PDO::PARAM_STR);
@@ -173,6 +173,8 @@ EOM;
 <!-- page_3 Complete page-->
 <?php if(isset($_POST['btn_submit']) && count($errors) === 0): ?>
 Registered.
+
+	<a href="login.php"><button class="btn">Back to Login Page</button></a>
 
 <!-- page_2 Confirm page-->
 <?php elseif (isset($_POST['btn_confirm']) && count($errors) === 0): ?>

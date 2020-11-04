@@ -31,7 +31,7 @@ if (isset($_POST['submit'])) {
 			$errors['mail_check'] = "Email address format is incorrect.";
        }
        //DB check        
-       $sql = "SELECT id FROM user_datas WHERE mail=:mail";
+       $sql = "SELECT id FROM user_data WHERE mail=:mail";
        $stm = $pdo->prepare($sql);
        $stm->bindValue(':mail', $mail, PDO::PARAM_STR);
        
@@ -59,7 +59,7 @@ if (isset($_POST['submit'])) {
            $stm->bindValue(':mail', $mail, PDO::PARAM_STR);
            $stm->execute();
            $pdo = null;
-           $message = "sent you an email. Please register from the URL provided in the email within 24 hours.";     
+           $message = "The email was sent. Please register from the URL provided in the email within 24 hours.";     
        }catch (PDOException $e){
            print('Error:'.$e->getMessage());
            die();
@@ -70,19 +70,26 @@ if (isset($_POST['submit'])) {
        * 
        */
        /*  
-   	$mailTo = $mail;
+       $mailTo = $mail;
+       
+       //Return-Path address
+       $returnMail = '';
+
+       $name = "CIT496P Project";
+       $mail = '';
+       $subject = "Register Student Profile";
+
        $body = <<< EOM
-       register below URL
-       within 24 hours
+       register below URL within 24 hours
        {$url}
 EOM;
        mb_language('en');
        mb_internal_encoding('UTF-8');
    
        //create from header
-       $header = 'From: ' . mb_encode_mimeheader($companyname). ' <' . $companymail. '>';
+       $header = 'From: ' . mb_encode_mimeheader($name). ' <' . $mail. '>';
    
-       if(mb_send_mail($mailTo, $registation_subject, $body, $header, '-f'. $companymail)){      
+       if(mb_send_mail($mailTo, $subject, $body, $header, '-f'. $returnMail)){      
            //release session
            $_SESSION = array();
            //delete cookie
@@ -91,8 +98,9 @@ EOM;
            }
            //destroy session
            session_destroy();
-           $message = "
-Sent you an email. Please register from the URL provided in the email within 24 hours.";
+           $message = "The email was sent. Please register from the URL provided in the email within 24 hours.";
+       } else {
+           $errors['mail_error'] = "Failed to send email.";
        }
        */
    }
