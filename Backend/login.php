@@ -50,8 +50,13 @@ if (isset($_POST["login"])) {
                         $row['name'];  // user name
                     }*/
                     $_SESSION["NAME"] = $row['name'];
-                    header("Location: main.php");  // move to main
-                    exit();
+                    $_SESSION["ROLE"] = $row['role'];
+                    if ($_SESSION["ROLE"] == 0){
+                        header("Location: main.php");  // move to student main
+                        exit();
+                    } else {
+                        header("Location: professor_main.php");
+                    }
                 } else {
                     // failed
                     //var_dump($row['password']);

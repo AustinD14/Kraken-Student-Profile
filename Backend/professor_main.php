@@ -12,11 +12,11 @@ if (!isset($_SESSION["NAME"])) {
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Main</title>
+        <title>Professor Main</title>
     </head>
     <body>
         <h1>Main menu</h1>
-        <p>Welcome Student <u><?php echo htmlspecialchars($_SESSION["NAME"], ENT_QUOTES); ?></u></p>
+        <p>Welcome Professor <u><?php echo htmlspecialchars($_SESSION["NAME"], ENT_QUOTES); ?></u></p>
         <ul>
             <li><a href="logout.php">logout</a></li>
         </ul>
