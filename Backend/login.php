@@ -1,13 +1,13 @@
 <?php
-require 'password.php'; //php5.5.0~
+// require 'password.php'; //php5.5.0~
 //require_once 'dbconnect.php';
 session_start();
 
 // Attention, these variables are needed to change to your or AWS environment.
 $db['host'] = "localhost";  //
-$db['user'] = "root";  //
-$db['pass'] = "rmpoke1945";  //
-$db['dbname'] = "student_profile";  //
+$db['user'] = "pma";  //
+$db['pass'] = "123456";  //
+$db['dbname'] = "Student_Profile";  //
 
 // init error message
 $errorMessage = "";
@@ -30,7 +30,7 @@ if (isset($_POST["login"])) {
 
         //
         try {
-            $pdo = new PDO($dsn, $db['user'], $db['pass'], array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
+            $pdo = new PDO($dsn, $db['user'], $db['pass'], array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 
             $stmt = $pdo->prepare('SELECT * FROM user_data WHERE mail = ?');
             $stmt->execute(array($mail));
@@ -51,7 +51,7 @@ if (isset($_POST["login"])) {
                     }*/
                     $_SESSION["NAME"] = $row['name'];
                     $_SESSION["ROLE"] = $row['role'];
-                    if ($_SESSION["ROLE"] == 0){
+                    if ($_SESSION["ROLE"] == 0) {
                         header("Location: main.php");  // move to student main
                         exit();
                     } else {
@@ -78,29 +78,36 @@ if (isset($_POST["login"])) {
 
 <!doctype html>
 <html>
-    <head>
-            <meta charset="UTF-8">
-            <title>Login</title>
-    </head>
-    <body>
-        <h1>Login</h1>
-        <form id="loginForm" name="loginForm" action="" method="POST">
-            <fieldset>
-                <legend>Login Form</legend>
-                <div><font color="#ff0000"><?php echo htmlspecialchars($errorMessage, ENT_QUOTES); ?></font></div>
-                <label for="mail">Email</label><input type="text" id="mail" name="mail" placeholder="Enter your email" value="<?php if (!empty($_POST["mail"])) {echo htmlspecialchars($_POST["mail"], ENT_QUOTES);} ?>">
-                <br>
-                <label for="password">Password</label><input type="password" id="password" name="password" value="" placeholder="Enter your password">
-                <br>
-                <input type="submit" id="login" name="login" value="Login">
-            </fieldset>
-        </form>
-        <br>
-        <form action="signup_mail.php">
-            <fieldset>
-                <legend>Sign Up</legend>
-                <input type="submit" value="signup">
-            </fieldset>
-        </form>
-    </body>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+
+<body>
+    <h1>Login</h1>
+    <form id="loginForm" name="loginForm" action="" method="POST">
+        <fieldset>
+            <legend>Login Form</legend>
+            <div>
+                <font color="#ff0000"><?php echo htmlspecialchars($errorMessage, ENT_QUOTES); ?></font>
+            </div>
+            <label for="mail">Email</label><input type="text" id="mail" name="mail" placeholder="Enter your email" value="<?php if (!empty($_POST["mail"])) {
+                                                                                                                                echo htmlspecialchars($_POST["mail"], ENT_QUOTES);
+                                                                                                                            } ?>">
+            <br>
+            <label for="password">Password</label><input type="password" id="password" name="password" value="" placeholder="Enter your password">
+            <br>
+            <input type="submit" id="login" name="login" value="Login">
+        </fieldset>
+    </form>
+    <br>
+    <form action="signup_mail.php">
+        <fieldset>
+            <legend>Sign Up</legend>
+            <input type="submit" value="signup">
+        </fieldset>
+    </form>
+</body>
+
 </html>

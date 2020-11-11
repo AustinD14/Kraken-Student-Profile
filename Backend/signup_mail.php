@@ -6,9 +6,9 @@ $token = $_SESSION['token'];
 // Clickjacking
 header('X-FRAME-OPTIONS: SAMEORIGIN');
 // database information !!!create DBconnect php file later
-$user = 'root';
-$password = 'rmpoke1945';
-$dbName = "student_profile";
+$user = 'pma';
+$password = '123456';
+$dbName = "Student_Profile";
 $host = "localhost";
 //init error message
 $errors = array();

@@ -11,9 +11,9 @@ $errors = array();
 
 //DB info
 // we can create new php file to connect DB later
-$user = 'root';
-$password = 'rmpoke1945';
-$dbName = "student_profile";
+$user = 'pma';
+$password = '123456';
+$dbName = "Student_Profile";
 $host = "localhost";
 //DB connection
 $dsn = "mysql:host={$host};dbname={$dbName};charser=utf8mb4";
@@ -22,7 +22,7 @@ $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 if(empty($_GET)) {
-	header("Location: registration_mail");
+	header("Location: signup_mail.php");
 	exit();
 }else{
 	//insert get data
@@ -65,7 +65,7 @@ if(empty($_GET)) {
 */
 if(isset($_POST['btn_confirm'])){
 	if(empty($_POST)) {
-		header("Location: registration_mail.php");
+		header("Location: signup_mail.php");
 		exit();
 	}else{
 		//POST data
