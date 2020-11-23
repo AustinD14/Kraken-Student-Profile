@@ -51,6 +51,7 @@ if (isset($_POST["login"])) {
                     }*/
                     $_SESSION["NAME"] = $row['name'];
                     $_SESSION["ROLE"] = $row['role'];
+                    $_SESSION["ID"] = $row['id'];
                     if ($_SESSION["ROLE"] == 0) {
                         header("Location: main.php");  // move to student main
                         exit();
@@ -76,19 +77,28 @@ if (isset($_POST["login"])) {
 }
 ?>
 
-<!doctype html>
-<html>
+<!DOCTYPE html>
+
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Login</title>
+    <meta charset="utf-8" />
+    <title>Student Profile</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="Styles/site.css"" />
 </head>
 
 <body>
-    <h1>Login</h1>
-    <form id="loginForm" name="loginForm" action="" method="POST">
-        <fieldset>
-            <legend>Login Form</legend>
+    <nav class=" navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand">Student Profile</a>
+    </nav>
+    <div style="height: 80px"></div>
+    <form id=" loginForm" name="loginForm" action="" method="POST" class="px-5">
+        <h1>Login</h1>
+        <fieldset class="px-3">
             <div>
                 <font color="#ff0000"><?php echo htmlspecialchars($errorMessage, ENT_QUOTES); ?></font>
             </div>
@@ -102,12 +112,14 @@ if (isset($_POST["login"])) {
         </fieldset>
     </form>
     <br>
-    <form action="signup_mail.php">
+    <form action="signup_mail.php" class="px-5">
         <fieldset>
-            <legend>Sign Up</legend>
-            <input type="submit" value="signup">
+            <h1>Register</h1>
+            <div class="px-3">
+            <input type="submit" value="Register" >
+            </div>
         </fieldset>
     </form>
-</body>
+    </body>
 
 </html>
