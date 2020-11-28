@@ -24,8 +24,8 @@ function console_log($output, $with_script_tags = true)
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $servername = "localhost";
-    $username = "root";
-    $password = "rmpoke1945";
+    $username = "pma";
+    $password = "123456";
     $dbname = "Student_Profile";
 
     $db_id = $_SESSION["ID"]; //database ID/row #

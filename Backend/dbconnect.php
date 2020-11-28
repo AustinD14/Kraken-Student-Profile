@@ -1,9 +1,9 @@
 <?php
 $db['host'] = "localhost";  //
-$db['user'] = "root";  //
-$db['pass'] = "rmpoke1945";  //
-$db['dbname'] = "student_profile";
-$dsn = 'mysql:dbname=student_profile;host=localhost;charset=utf8mb4';
+$db['user'] = "pma";  //
+$db['pass'] = "123456";  //
+$db['dbname'] = "Student_Profile";
+$dsn = 'mysql:dbname=Student_Profile;host=localhost;charset=utf8mb4';
 $user = $db['user'];
 $pass = $db['pass'];
 try {

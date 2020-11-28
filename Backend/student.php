@@ -3,8 +3,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //Check it is comming from a form
 
     //mysql credentials
     $mysql_host = "localhost";
-    $mysql_username = "root";
-    $mysql_password = "rmpoke1945";
+    $mysql_username = "pma";
+    $mysql_password = "123456";
     $mysql_database = "Student_Profile";
 
 

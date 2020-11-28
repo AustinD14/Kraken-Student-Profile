@@ -5,8 +5,8 @@ session_start();
 
 // Attention, these variables are needed to change to your or AWS environment.
 $db['host'] = "localhost";  //
-$db['user'] = "root";  //
-$db['pass'] = "rmpoke1945";  //
+$db['user'] = "pma";  //
+$db['pass'] = "123456";  //
 $db['dbname'] = "Student_Profile";  //
 
 // init error message

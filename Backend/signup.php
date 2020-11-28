@@ -11,8 +11,8 @@ $errors = array();
 
 //DB info
 // we can create new php file to connect DB later
-$user = 'root';
-$password = 'rmpoke1945';
+$user = 'pma';
+$password = '123456';
 $dbName = "Student_Profile";
 $host = "localhost";
 //DB connection
