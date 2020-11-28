@@ -61,7 +61,7 @@ $_SESSION["STUDENT_ID"] = $student_id;
         </form>
     </nav>
     <div style="height: 80px"></div>
-    <h1>Welcome <u><?php echo htmlspecialchars($_SESSION["NAME"], ENT_QUOTES); ?></u></h1>
+    <h1>Welcome Student: <u><?php echo htmlspecialchars($_SESSION["NAME"], ENT_QUOTES); ?></u></h1>
 
     <?php
 // Include the database configuration file

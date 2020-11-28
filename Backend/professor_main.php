@@ -8,6 +8,8 @@ if (!isset($_SESSION["NAME"])) {
     exit;
 }
 
+echo "<br><br><br>";
+
 // show professor's class list
 $sql = 'SELECT * FROM class where instructor = :instructor';
 $stmt = $dbh->prepare($sql);
@@ -16,17 +18,31 @@ $stmt->execute();
 $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Professor Main</title>
-    </head>
-    <body>
-        <h1>Main menu</h1>
-        <p>Welcome Professor <u><?php echo htmlspecialchars($_SESSION["NAME"], ENT_QUOTES); ?></u></p>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Student Profile</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="site.css" />
+</head>
+
+<body>
+    <nav class=" navbar navbar-expand-lg navbar-dark bg-dark fixed-top justify-content-between">
+        <a class="navbar-brand">Student Profile</a>
+        <form class="form-inline">
+        <a class="btn btn-primary my-2 my-sm-0" href="logout.php" role="button">Logout</a>
+        </form>
+    </nav>
+
+        <h1><p>Welcome Professor: <u><?php echo htmlspecialchars($_SESSION["NAME"], ENT_QUOTES); ?></u></p></h1>
+
         <h2>Your Class:</h2>
-        <table>
+        <table class="table table-striped">
             <tr>
                 <th>Class ID</th>
                 <th>Class Name</th>
@@ -47,5 +63,5 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <ul>
             <li><a href="logout.php">logout</a></li>
         </ul>
-    </body>
+</body>
 </html>
