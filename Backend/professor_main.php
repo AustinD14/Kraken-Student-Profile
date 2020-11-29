@@ -35,33 +35,34 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <nav class=" navbar navbar-expand-lg navbar-dark bg-dark fixed-top justify-content-between">
         <a class="navbar-brand">Student Profile</a>
         <form class="form-inline">
-        <a class="btn btn-primary my-2 my-sm-0" href="logout.php" role="button">Logout</a>
+            <a class="btn btn-primary my-2 my-sm-0" href="logout.php" role="button">Logout</a>
         </form>
     </nav>
 
-        <h1><p>Welcome Professor: <u><?php echo htmlspecialchars($_SESSION["NAME"], ENT_QUOTES); ?></u></p></h1>
+    <h1>
+        <p>Welcome Professor: <u><?php echo htmlspecialchars($_SESSION["NAME"], ENT_QUOTES); ?></u></p>
+    </h1>
 
-        <h2>Your Class:</h2>
-        <table class="table table-striped">
+    <h2>Your Class:</h2>
+    <table class="table table-striped">
+        <tr>
+            <th>Class ID</th>
+            <th>Class Name</th>
+            <th>Instructor</th>
+        </tr>
+        <?php foreach ($result as $column) : ?>
             <tr>
-                <th>Class ID</th>
-                <th>Class Name</th>
-                <th>Instructor</th>
-            </tr>
-            <?php foreach($result as $column): ?>
-            <tr>
-                <td><?php echo $column["class_id"] ?></td>
+                <td><?php echo $column["class_id"] ?> </td>
                 <td><?php echo $column["class_name"] ?></td>
                 <td><?php echo $column["instructor"] ?></td>
+                <td><a href="professor_student_list.php?class_id=<?php echo $column["class_id"] ?>">View</a></td>
                 <td><a href="delete_class.php?id=<?php echo $column['class_id'] ?>">Delete</a></td>
             </tr>
-            <?php endforeach; ?>
-        </table>
-        <ul>
-            <li><a href="create_class.php">Create Your Class</a></li>
-        </ul>
-        <ul>
-            <li><a href="logout.php">logout</a></li>
-        </ul>
+        <?php endforeach; ?>
+    </table>
+    <ul>
+        <li><a href="create_class.php">Create Your Class</a></li>
+    </ul>
 </body>
+
 </html>
