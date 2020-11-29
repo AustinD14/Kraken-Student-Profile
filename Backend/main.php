@@ -36,6 +36,10 @@ $student_info = $result->fetch_assoc();
 $student_id = $student_info["student_id"];
 $_SESSION["NAME"] = $student_info["name"];
 $_SESSION["STUDENT_ID"] = $student_id;
+
+//error checking
+ini_set('display_errors', '1');
+ini_set('error_reporting', E_ALL);
 ?>
 
 <!DOCTYPE html>

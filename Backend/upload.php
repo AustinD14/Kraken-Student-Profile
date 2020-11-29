@@ -3,6 +3,9 @@
 include 'dbconnect.php';
 $statusMsg = '';
 
+ini_set('display_errors', '1');
+ini_set('error_reporting', E_ALL);
+
 session_start();
 $student_id = $_SESSION["STUDENT_ID"];
 
@@ -11,7 +14,7 @@ echo '<br>';
 echo '<br>';
 
 // File upload path
-$targetDir = "upload_image/"; //!!!!!!!!!!!!  adjust to your directory   !!!!!!!!!!!!!!!
+$targetDir = "/var/www/html/Kraken-Student-Profile/Backend/upload_image/"; //!!!!!!!!!!!!  adjust to your directory   !!!!!!!!!!!!!!!
 $fileName = basename($_FILES["file"]["name"]);
 $targetFilePath = $targetDir . $fileName;
 $fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION);
