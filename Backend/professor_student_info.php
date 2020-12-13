@@ -21,13 +21,23 @@ $student_id = $_GET['student_id'];
 
 echo "<br><br><br>";
 
+//student info
 $sql = 'SELECT student_id, name, mail, birthday, phone_number FROM user_data where student_id = :student_id';
 $stmt = $dbh->prepare($sql);
 $stmt->bindValue(':student_id', $student_id, PDO::PARAM_STR);
 $stmt->execute();
 $student_info = $stmt->fetch(PDO::FETCH_ASSOC);
 
-console_log($student_info);
+
+//student image
+$sql = 'SELECT file_name FROM upimages where student_id = :student_id';
+$stmt = $dbh->prepare($sql);
+$stmt->bindValue(':student_id', $student_id, PDO::PARAM_STR);
+$stmt->execute();
+$student_image = $stmt->fetch(PDO::FETCH_ASSOC);
+
+$imageURL = 'upload_image/' . $student_image["file_name"];
+console_log($imageURL);
 ?>
 
 <!DOCTYPE html>
@@ -50,13 +60,15 @@ console_log($student_info);
             <a class="btn btn-primary my-2 my-sm-0" href="logout.php" role="button">Logout</a>
         </form>
     </nav>
-
-    <div class="px-5">
-        Name: <?php echo $student_info["name"] ?></br>
-        Student ID: <?php echo $student_info["student_id"] ?></br>
-        Email: <?php echo $student_info["mail"] ?></br>
-        Phone Number: <?php echo $student_info["phone_number"] ?></br>
-        Birthday: <?php echo $student_info["birthday"] ?></br>
+    <div class="px-2 py-1">
+        <img src="<?php echo $imageURL; ?>" id="photo" class="rounded float-left" alt="no image" />
+        <div class="px-5">
+            Name: <?php echo $student_info["name"] ?></br>
+            Student ID: <?php echo $student_info["student_id"] ?></br>
+            Email: <?php echo $student_info["mail"] ?></br>
+            Phone Number: <?php echo $student_info["phone_number"] ?></br>
+            Birthday: <?php echo $student_info["birthday"] ?></br>
+        </div>
     </div>
 </body>
 
