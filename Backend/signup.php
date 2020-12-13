@@ -191,8 +191,11 @@ EOM;
 		<!-- page_3 Complete page-->
 		<?php if (isset($_POST['btn_submit']) && count($errors) === 0) : ?>
 			Registered.
-		</br>	
-			<a href="login.php"><button class="btn">Back to Login Page</button></a>
+		</br>
+		<ul>
+			<li><a href="login.php"><button class="btn">Back to Login Page</button></a></li>
+		</ul>
+
 
 			<!-- page_2 Confirm page-->
 		<?php elseif (isset($_POST['btn_confirm']) && count($errors) === 0) : ?>

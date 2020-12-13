@@ -48,3 +48,23 @@ CREATE TABLE `upimages` (
   `uploaded_on` DATETIME NOT NULL,
   `status` ENUM('0','1') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARACTER SET=utf8;
+
+DROP TABLE IF EXISTS `class`;
+CREATE TABLE `class` (
+  `class_id` int(11) NOT NULL,
+  `class_name` varchar(256) NOT NULL,
+  `instructor` varchar(256) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+ALTER TABLE `class`
+  ADD PRIMARY KEY (`class_id`),
+  ADD UNIQUE KEY `class_id` (`class_id`);
+COMMIT;
+
+DROP TABLE IF EXISTS `class_registered`;
+CREATE TABLE `class_registered` (
+  `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `class_id` int(11) NOT NULL,
+  `student_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+

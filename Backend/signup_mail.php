@@ -48,7 +48,7 @@ if (isset($_POST['submit'])) {
         // Caution!!
         //we change url when we use AWS
         // Caution!!
-        $url = "http://localhost/kraken/signup.php?urltoken=" . $urltoken;
+        $url = "http://localhost/kraken/austin/signup.php?urltoken=" . $urltoken;
         //register to db here
         try {
             //exception
