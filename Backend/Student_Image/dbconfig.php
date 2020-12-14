@@ -1,9 +1,9 @@
 <?php
 // Database configuration
 $dbHost     = "localhost";
-$dbUsername = "root";
-$dbPassword = "rmpoke1945";
-$dbName     = "student_profile";
+$dbUsername = "pma";
+$dbPassword = "123456";
+$dbName     = "Student_Profile";
 
 // Create database connection
 $db = new mysqli($dbHost, $dbUsername, $dbPassword, $dbName);
